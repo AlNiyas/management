@@ -1,0 +1,18 @@
+.Main {
+    width: auto;
+    padding: 40px;
+}
+
+.Card {
+    color: green;
+    margin-top: 5%;
+    height: 75px;
+    width: 150px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 2px 0px, rgba(0, 0, 0, 0.14) 0px 2px 4px 0px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}

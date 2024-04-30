@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './components/Home/Home';
+import Users from './components/Users/Users';
+import UserDetails from './components/UserDetails/UserDetails';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+import { registerIcons } from '@fluentui/react';
 
 function App() {
+  console.log("Rendering App");
+
+  const router = createBrowserRouter([
+     {
+      //parent element
+      element: <Layout/>,
+      children : [
+        {
+          path: "/",
+          element: <Home/>
+        },
+        {
+          path: "/home",
+          element: <Home/>
+        },
+        {
+          path:"/users",
+          element: <Users/>
+        },
+        {
+          path:"/users/:userId",
+          element:<UserDetails isNewUser={false}/>
+        },
+        {
+          path:"/users/newUser",
+          element:<UserDetails isNewUser={true}/>
+        }
+      ]
+     }
+  ]);
+
+  initializeIcons();
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 

@@ -1,0 +1,12 @@
+.error {
+    background-color: red;
+}
+
+.header {
+    font-family: consolas;
+    border: 2px solid #73AD21;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
